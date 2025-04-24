@@ -1,6 +1,9 @@
 CODECORTEX: Code Analysis Web Application
+
+
 Project Overview
 CODECORTEX is a Flask-based web application that enables users to submit code for automated analysis. It allows direct code submission or uploading ZIP files containing multiple code files. The application sends the submitted code to an external API for analysis and returns results in JSON and Markdown formats. With a futuristic UI and dark mode support, CODECORTEX provides a seamless and modern user experience for developers.
+
 
 Features:----
 1)Code Submission
@@ -22,6 +25,8 @@ The application features a modern design that includes gradients, glassmorphism,
 6)Download Results
 Download the analysis results as a JSON file for further use or storage.
 
+
+
 Folder Structure:-----
 ├── app/
 │   ├── frontend/
@@ -38,13 +43,17 @@ Folder Structure:-----
 ├── requirements.txt
 └── README.md
 
+
+
 Prerequisites:-----
 Before running the application, make sure you have the following:
 
 Python 3.7+ installed.
 
+
 The following Python libraries installed:----
 pip install -r requirements.txt
+
 
 Setup Instructions:----
 1. Clone the Repository
@@ -63,6 +72,8 @@ python cortex.py
 
 4. Access the Application
 Open your browser and navigate to http://127.0.0.1:5000/ to access the web application.
+
+
 
 Usage:----
 1. Home Page
@@ -89,6 +100,7 @@ The application integrates with an external API endpoint for code analysis:
 Ensure the API is active and accessible.
 The code will be submitted to the external endpoint for analysis, and the results will be displayed on the result page.
 
+
 Customization:----
 Frontend
 Modify the HTML, CSS, and JS files in the frontend folder to customize the user interface.
@@ -100,12 +112,14 @@ The history folder saves previous submissions and results.
 
 You can update these paths in cortex.py if needed.
 
+
 Known Issues:----
 1. Large ZIP Files
 Ensure that uploaded ZIP files do not exceed the server's upload limit. You may need to adjust the Flask configuration if you encounter this issue.
 
 2. API Errors
 If the API key or endpoint is incorrect, the application will display an error on the result page.
+
 
 Future Enhancements:----
 User Authentication: Implement user authentication for saving submission history and personalizing the experience.
