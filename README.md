@@ -1,4 +1,4 @@
-CODECORTEX: Code Analysis Web Application
+**CODECORTEX**:** Code Analysis Web Application**
 
 
 Project Overview
