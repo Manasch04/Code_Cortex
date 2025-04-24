@@ -39,10 +39,6 @@ Folder Structure:-----
 │   │   ├── index.html
 │   │   ├── input.html
 │   │   ├── result.html
-│   ├── static/
-│   │   ├── css/
-│   │   ├── js/
-│   │   ├── images/
 │   ├── uploads/
 │   ├── history/
 ├── cortex.py
