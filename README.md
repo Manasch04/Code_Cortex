@@ -1,11 +1,15 @@
-**CODECORTEX**:** Code Analysis Web Application**
+**CODECORTEX**: Code Analysis Web Application
 
 
-Project Overview
+Project Overview:---
+
+
 CODECORTEX is a Flask-based web application that enables users to submit code for automated analysis. It allows direct code submission or uploading ZIP files containing multiple code files. The application sends the submitted code to an external API for analysis and returns results in JSON and Markdown formats. With a futuristic UI and dark mode support, CODECORTEX provides a seamless and modern user experience for developers.
 
 
 Features:----
+
+
 1)Code Submission
 Text Area Input: Submit code directly by pasting it into a text area.
 
@@ -28,6 +32,8 @@ Download the analysis results as a JSON file for further use or storage.
 
 
 Folder Structure:-----
+
+
 ├── app/
 │   ├── frontend/
 │   │   ├── index.html
@@ -46,6 +52,7 @@ Folder Structure:-----
 
 
 Prerequisites:-----
+
 Before running the application, make sure you have the following:
 
 Python 3.7+ installed.
@@ -56,6 +63,7 @@ pip install -r requirements.txt
 
 
 Setup Instructions:----
+
 1. Clone the Repository
 Clone the repository to your local machine:
 git clone https://github.com/yourusername/codecortex.git
@@ -76,6 +84,7 @@ Open your browser and navigate to http://127.0.0.1:5000/ to access the web appli
 
 
 Usage:----
+
 1. Home Page
 Click Get Started to navigate to the input page where you can provide details about your code submission.
 
@@ -102,6 +111,7 @@ The code will be submitted to the external endpoint for analysis, and the result
 
 
 Customization:----
+
 Frontend
 Modify the HTML, CSS, and JS files in the frontend folder to customize the user interface.
 You can adjust the themes, layout, or UI elements to suit your needs.
@@ -114,6 +124,7 @@ You can update these paths in cortex.py if needed.
 
 
 Known Issues:----
+
 1. Large ZIP Files
 Ensure that uploaded ZIP files do not exceed the server's upload limit. You may need to adjust the Flask configuration if you encounter this issue.
 
@@ -121,15 +132,25 @@ Ensure that uploaded ZIP files do not exceed the server's upload limit. You may 
 If the API key or endpoint is incorrect, the application will display an error on the result page.
 
 
+
+
 Future Enhancements:----
+
 User Authentication: Implement user authentication for saving submission history and personalizing the experience.
 Support for Additional File Formats: Extend support for other compressed formats like .tar.gz.
 Real-time Progress Updates: Add real-time feedback during code analysis to keep the user informed.
 
-License
+
+
+
+License:---
+
 This project is licensed under the MIT License. Feel free to use and modify it as needed.
 
-Author
+
+
+Author:---
+
 Developed by Manas Chauhan. For any queries, contact rajputmanas48@gmail.com.
 
 
