@@ -107,7 +107,7 @@
                 <pre><code class="json">{{ result|tojson(indent=4) }}</code></pre>
                 <h2>Markdown Summary:</h2>
                 <pre>{{ markdown_summary }}</pre>
-                <a href="/download" class="button">Download Result</a>
+                <a href="/download/{{ developer_name }}/{{ timestamp }}" class="button">Download Result</a>
             {% elif error %}
                 <h2 style="color: red;">Error:</h2>
                 <pre>{{ error }}</pre>
