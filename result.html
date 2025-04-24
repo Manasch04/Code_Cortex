@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Analysis Result - CODECORTEX</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.7.0/styles/default.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.7.0/highlight.min.js"></script>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f9;
+            transition: background-color 0.3s, color 0.3s;
+        }
+        .dark-mode {
+            background-color: #121212;
+            color: #ffffff;
+        }
+        .container {
+            max-width: 800px;
+            margin: 50px auto;
+            padding: 20px;
+            background: white;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            transition: background 0.3s, color 0.3s;
+        }
+        .dark-mode .container {
+            background: #1e1e1e;
+            color: #ffffff;
+        }
+        h1 {
+            text-align: center;
+            color: #333;
+        }
+        .dark-mode h1 {
+            color: #ffffff;
+        }
+        .result-section {
+            margin-top: 20px;
+            padding: 20px;
+            background: #f8f9fa;
+            border-radius: 8px;
+            border: 1px solid #ddd;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        .dark-mode .result-section {
+            background: #1e1e1e;
+            border-color: #333;
+        }
+        .result-section h2 {
+            color: #333;
+        }
+        .dark-mode .result-section h2 {
+            color: #ffffff;
+        }
+        .result-section pre {
+            background: #ffffff;
+            padding: 10px;
+            border-radius: 4px;
+            border: 1px solid #ddd;
+            overflow-x: auto;
+            white-space: pre-wrap;
+            word-wrap: break-word;
+        }
+        .dark-mode .result-section pre {
+            background: #2e2e2e;
+            color: #ffffff;
+        }
+        .button-container {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 20px;
+        }
+        .button {
+            padding: 10px 20px;
+            font-size: 14px;
+            background-color: #007bff;
+            color: white;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            text-decoration: none;
+            text-align: center;
+            width: auto;
+        }
+        .button:hover {
+            background-color: #0056b3;
+        }
+        .dark-mode .button {
+            background-color: #6c757d;
+        }
+        .dark-mode .button:hover {
+            background-color: #5a6268;
+        }
+    </style>
+</head>
+<body>
+    <button class="button" style="position: fixed; top: 10px; right: 10px;" onclick="toggleDarkMode()">Dark Mode</button>
+    <div class="container">
+        <h1>Analysis Result</h1>
+        <div class="result-section">
+            {% if result %}
+                <h2>JSON Report:</h2>
+                <pre><code class="json">{{ result|tojson(indent=4) }}</code></pre>
+                <h2>Markdown Summary:</h2>
+                <pre>{{ markdown_summary }}</pre>
+                <a href="/download" class="button">Download Result</a>
+            {% elif error %}
+                <h2 style="color: red;">Error:</h2>
+                <pre>{{ error }}</pre>
+            {% endif %}
+        </div>
+    </div>
+    <script>
+        function toggleDarkMode() {
+            document.body.classList.toggle('dark-mode');
+        }
+        hljs.highlightAll();
+    </script>
+</body>
+</html>

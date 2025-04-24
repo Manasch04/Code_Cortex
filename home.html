@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Home - CODECORTEX</title>
+    <style>
+        body {
+            font-family: 'Roboto', Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background: linear-gradient(135deg, #1e1e2f, #2a2a40);
+            color: #ffffff;
+            transition: background-color 0.3s, color 0.3s;
+        }
+        .dark-mode {
+            background: linear-gradient(135deg, #0d0d1a, #1a1a2b);
+            color: #ffffff;
+        }
+        .container {
+            max-width: 800px;
+            margin: 100px auto;
+            padding: 20px;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 16px;
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.37);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.18);
+            text-align: center;
+        }
+        .dark-mode .container {
+            background: rgba(0, 0, 0, 0.5);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+        h1 {
+            font-size: 3em;
+            color: #00d4ff;
+            text-shadow: 0 0 10px #00d4ff, 0 0 20px #00d4ff;
+        }
+        .dark-mode h1 {
+            color: #00aaff;
+        }
+        a.button {
+            display: inline-block;
+            padding: 12px 24px;
+            font-size: 16px;
+            font-weight: bold;
+            background: linear-gradient(135deg, #00d4ff, #007bff);
+            color: white;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 15px rgba(0, 212, 255, 0.5);
+        }
+        a.button:hover {
+            background: linear-gradient(135deg, #007bff, #00d4ff);
+            transform: translateY(-3px);
+            box-shadow: 0 6px 20px rgba(0, 212, 255, 0.7);
+        }
+    </style>
+</head>
+<body>
+    <button class="button" style="position: fixed; top: 10px; right: 10px;" onclick="toggleDarkMode()">Dark Mode</button>
+    <div class="container">
+        <h1>Welcome to CODECORTEX</h1>
+        <a href="/input" class="button">Get Started</a>
+    </div>
+    <script>
+        function toggleDarkMode() {
+            document.body.classList.toggle('dark-mode');
+        }
+    </script>
+</body>
+</html>
