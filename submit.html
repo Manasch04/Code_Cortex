@@ -20,11 +20,11 @@
 
         /* Container Styles */
         .container {
-            max-width: 600px;
-            margin: 50px auto;
-            padding: 20px;
-            background: rgba(255, 255, 255, 0.1);
-            border-radius: 16px;
+            max-width: 900px;
+            margin: 70px auto;
+            padding: 30px 24px;
+            background: rgba(255, 255, 255, 0.08);
+            border-radius: 18px;
             box-shadow: 0 8px 32px rgba(0, 0, 0, 0.37);
             backdrop-filter: blur(10px);
             border: 1px solid rgba(255, 255, 255, 0.18);
@@ -100,23 +100,23 @@
         }
 
         /* Dark Mode Button */
-        .button {
-            padding: 8px 16px;
-            font-size: 14px;
-            border-radius: 8px;
-            width: auto;
+        .dark-toggle {
             position: fixed;
             top: 10px;
             right: 10px;
-            background: linear-gradient(135deg, #00d4ff, #007bff);
-            color: white;
+            background: #222b;
+            color: #fff;
             border: none;
+            border-radius: 50%;
+            width: 44px;
+            height: 44px;
             cursor: pointer;
-            box-shadow: 0 4px 15px rgba(0, 212, 255, 0.5);
+            font-size: 1.5em;
+            box-shadow: 0 2px 6px rgba(0,0,0,0.3);
         }
-        .button:hover {
-            background: linear-gradient(135deg, #007bff, #00d4ff);
-            transform: translateY(-3px);
+        .dark-toggle:hover {
+            background: #00d4ff;
+            color: #222;
         }
 
         /* Form Styles */
@@ -125,10 +125,24 @@
             flex-direction: column;
             gap: 20px;
         }
+        @media (max-width: 700px) {
+            .container {
+                max-width: 98vw;
+                margin: 20px 1vw;
+                padding: 10px 2vw;
+            }
+        }
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
     </style>
 </head>
 <body>
-    <button class="button" onclick="toggleDarkMode()">Dark Mode</button>
+    <button class="dark-toggle" onclick="toggleDarkMode()" title="Toggle Dark Mode">&#x1F319;</button>
+    <div id="loading-overlay" style="display:none;position:fixed;top:0;left:0;width:100vw;height:100vh;background:rgba(0,0,0,0.5);z-index:1000;justify-content:center;align-items:center;">
+        <div class="spinner" style="border: 8px solid #f3f3f3; border-top: 8px solid #00d4ff; border-radius: 50%; width: 60px; height: 60px; animation: spin 1s linear infinite;"></div>
+    </div>
     <div class="container">
         <h1>Submit Your Code</h1>
         <form method="post" enctype="multipart/form-data">
@@ -140,8 +154,23 @@
         </form>
     </div>
     <script>
+        // Show loading overlay on form submit
+        document.addEventListener('DOMContentLoaded', function() {
+            var form = document.querySelector('form');
+            if(form) {
+                form.addEventListener('submit', function() {
+                    document.getElementById('loading-overlay').style.display = 'flex';
+                });
+            }
+        });
         function toggleDarkMode() {
             document.body.classList.toggle('dark-mode');
+            localStorage.setItem('darkMode', document.body.classList.contains('dark-mode'));
+        }
+        window.onload = function() {
+            if (localStorage.getItem('darkMode') === 'true') {
+                document.body.classList.add('dark-mode');
+            }
         }
     </script>
 </body>
