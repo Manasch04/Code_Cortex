@@ -1,0 +1,33 @@
+import base64
+import io
+import zipfile
+from promptflow import tool
+
+@tool
+def extract_and_classify(input_data: str) -> dict:
+    try:
+        # First, try Base64 decode
+        decoded_bytes = base64.b64decode(input_data)
+        zip_file = zipfile.ZipFile(io.BytesIO(decoded_bytes))
+
+        result = []
+        for filename in zip_file.namelist():
+            if filename.endswith(('.py', '.cs')):
+                file_data = zip_file.read(filename).decode('utf-8', errors='ignore')
+                file_type = "API" if "controller" in filename.lower() else \
+                            "Model" if "model" in filename.lower() else \
+                            "Utility"
+                result.append({
+                    "filename": filename,
+                    "type": file_type,
+                    "content": file_data
+                })
+        return {"files": result}
+
+    except Exception:
+        # If not a base64 ZIP, treat input as direct pasted code text
+        return {"files": [{
+            "filename": "pasted_code.txt",
+            "type": "Utility",
+            "content": input_data
+        }]}
