@@ -17,11 +17,11 @@
             color: #ffffff;
         }
         .container {
-            max-width: 600px;
-            margin: 50px auto;
-            padding: 20px;
-            background: rgba(255, 255, 255, 0.1);
-            border-radius: 16px;
+            max-width: 900px;
+            margin: 70px auto;
+            padding: 30px 24px;
+            background: rgba(255, 255, 255, 0.08);
+            border-radius: 18px;
             box-shadow: 0 8px 32px rgba(0, 0, 0, 0.37);
             backdrop-filter: blur(10px);
             border: 1px solid rgba(255, 255, 255, 0.18);
@@ -74,17 +74,42 @@
             transform: translateY(-3px);
             box-shadow: 0 6px 20px rgba(0, 212, 255, 0.7);
         }
+        .dark-toggle {
+            position: absolute;
+            top: 24px;
+            right: 32px;
+            background: #222b;
+            color: #fff;
+            border: none;
+            border-radius: 50%;
+            width: 44px;
+            height: 44px;
+            cursor: pointer;
+            font-size: 1.5em;
+            box-shadow: 0 2px 6px rgba(0,0,0,0.3);
+        }
+        .dark-toggle:hover {
+            background: #00d4ff;
+            color: #222;
+        }
+        @media (max-width: 700px) {
+            .container {
+                max-width: 98vw;
+                margin: 20px 1vw;
+                padding: 10px 2vw;
+            }
+        }
     </style>
 </head>
 <body>
-    <button class="button" style="position: fixed; top: 10px; right: 10px;" onclick="toggleDarkMode()">Dark Mode</button>
+    <button class="dark-toggle" onclick="toggleDarkMode()" title="Toggle Dark Mode">🌙</button>
     <div class="container">
         <h1>Enter Your Details</h1>
         <form method="post">
             <label for="developer_name">Your Name:</label>
             <input type="text" name="developer_name" id="developer_name" required>
             <label for="code_type">Type of Code:</label>
-            <select name="code_type" id="code_type">
+            <select name="code_type" id="code_type" style="background: #222; color: #00d4ff; border: 2px solid #00d4ff; font-weight: bold;">
                 <option value="API">API</option>
                 <option value="UI">UI</option>
                 <option value="Framework">Framework</option>
@@ -96,6 +121,12 @@
     <script>
         function toggleDarkMode() {
             document.body.classList.toggle('dark-mode');
+            localStorage.setItem('darkMode', document.body.classList.contains('dark-mode'));
+        }
+        window.onload = function() {
+            if (localStorage.getItem('darkMode') === 'true') {
+                document.body.classList.add('dark-mode');
+            }
         }
     </script>
 </body>
