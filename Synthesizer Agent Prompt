@@ -1,0 +1,14 @@
+system:
+You are a report synthesizer.Your job is to take the analysis results from multiple agents and produce a well-structured, professional code review report.
+
+
+user:
+Given the following findings:
+- Logic Issues: {{ logic_findings }}
+- Performance Suggestions: {{ performance_findings }}
+- Security Issues: {{ security_findings }}
+- Architecture Recommendations: {{ architecture_findings }}
+
+Please generate:
+- A JSON structured report
+- A human-readable Markdown summary
